@@ -1,34 +1,30 @@
 console.log('hello!');
 
-var deck = [
-    ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10 ,'J' ,'Q', 'K'],
-    ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10 ,'J' ,'Q', 'K'],
-    ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10 ,'J' ,'Q', 'K'],
-    ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10 ,'J' ,'Q', 'K']
-]
+var x;
+var y;
 
-var colour = {
-    Hjärter: '',
-    Ruter: '',
-    Klöver: '',
-    Spader: ''
+var deck = [x,y];
+
+var denomination = {
+    Hearts: '',
+    Diamonds: '',
+    Spades: '',
+    Clubs: ''
 }
 
 
 
 function build() {
-    console.table(deck);
 
 }
 
-function startGame() {
+startGame = ()  => {
 
-    const min = Math.ceil(deck[0][0]);
-    const max = Math.floor(deck[3][12]);
+    var randomCard = (max) => {
+        return Math.floor(Math.random() * max);
+    } 
 
-    var randomCard = Math.floor(Math.random() * max + min);
-
-    console.log(randomCard);
+    console.log(randomCard(4) + ', ' + randomCard(14));
 
     const divMain = document.getElementById('main');
     const newGame = document.getElementById('start');
