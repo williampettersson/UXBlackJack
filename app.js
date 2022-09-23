@@ -18,15 +18,17 @@ var colour = {
 
 function build() {
     console.table(deck);
-    console.log(deck[3][8]);
+
 }
 
 function startGame() {
 
-    const max = Math.cell(deck[0][0]);
-    const min = Math.floor(deck[3][12]);
+    const min = Math.ceil(deck[0][0]);
+    const max = Math.floor(deck[3][12]);
 
-    console.log(randomCard(deck));
+    var randomCard = Math.floor(Math.random() * max + min);
+
+    console.log(randomCard);
 
     const divMain = document.getElementById('main');
     const newGame = document.getElementById('start');
