@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <script src="app.js"></script>
     <title>Home</title>
 </head>
-<body>
+<body onload="build()">
+    <button id="start" onclick="startGame()">Start game</button>
+<div id="main" hidden>
+  
     
+    <div id="buttons">
+        <button type="button" id="hit">Hit</button>
+        <button type="button" id="stay">Stay</button>
+        <button type="button" id="clear">New game</button>
+    </div>
+</div>
 </body>
 </html>
