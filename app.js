@@ -1,46 +1,43 @@
-var x;
-var y;
+var color;
+var value;
 
-var deck = [x,y];
+var deck = [color, value];
 
 var yourCards = [];
 var computerCards = [];
-var hitCards = [];
+var playerTotal = [];
 
-var color = {
-    Hearts: '',
-    Diamonds: '',
-    Spades: '',
-    Clubs: ''
+drawCard = () => {
+    var randomCard = (max) => Math.floor(Math.random(deck) * max); 
+    
+    color = randomCard(4);
+    value = randomCard(13);
+    cards = {color, value};
+
+    includesCard();
+
+    console.table(yourCards);
+    console.table(deck);
 }
 
-
-
-function build() {
-
+includesCard = () => {
+    if (yourCards.includes(`${color}, ${value}`)) {
+        drawCard();
+    } else {
+        yourCards.push(`${color}, ${value}`);
+        deck.push(cards);
+    }
 }
 
 startGame = ()  => {
 
+    deck = [];
     yourCards = [];
     computerCards = [];
 
-    var randomCard = (max) => {
-        return Math.floor(Math.random() * max);
-    } 
-
     for (i=0; i<2; i++) {
-        var cards = (randomCard(4) + ', ' + randomCard(13));    
-        yourCards.push(cards);
+        drawCard();   
     }
-
-    for (i=0; i<2; i++) {
-        var cards = (randomCard(4) + ', ' + randomCard(13));    
-        computerCards.push(cards);
-    }
-
-    console.log(computerCards);
-    console.log(yourCards);
 
     var pCards = document.getElementById('playersCards');
     pCards.innerHTML = (`Your cards are: ${yourCards}.`);
@@ -51,22 +48,45 @@ startGame = ()  => {
 
     const divMain = document.getElementById('main');
     const newGame = document.getElementById('start');
-    newGame.innerHTML = 'Start NEW game';
+    newGame.innerHTML = 'Reset game';
     divMain.hidden = false;
+
+    score();
 
 }
 
 hit = () => {
-    var randomCard = (max) => {
-        return Math.floor(Math.random() * max);
-    }
+    drawCard();
+    score();
 
-    var cards = (randomCard(4) + ', ' + randomCard(13));
-    hitCards.push(cards);
-
+    /*var hitCard = document.getElementById('hitCards');
+    hitCard.innerHTML = (`${yourCards}`);*/
     
+}
 
-    var hitCard = document.getElementById('hitCards');
-    hitCard.innerHTML = (`${hitCards}`);
+score = () => {
+    var playerTotal = document.getElementById('total');      
+    let sum = 0;     
+
+    for (var i=0; i < deck.length; i++){         
+        if (deck[i].value > 9) {             
+            sum += 10;        
+        } else {         
+            sum += deck[i].value+1;         
+        };     
+    };     
     
+    playerTotal.innerHTML = sum;
+  
+    /* var total = document.getElementById('total');
+  
+    var playerScore = 0;
+
+    for (var i = 0; i < deck.length; i++) {
+        playerScore += deck[i].value;
+    };
+
+    total.innerHTML = playerScore;
+    console.log(total);
+    */
 }

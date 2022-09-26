@@ -8,15 +8,18 @@
     <script src="app.js"></script>
     <title>Home</title>
 </head>
-<body onload="build()">
+<body>
     <button id="start" onclick="startGame()">Start game</button>
 <div id="main" hidden>
     <h1 id="computerTitle">Computer:</h1><br>
+    <p id="computerTotal"></p>
     <p id="computersCards"></p><br>
+    
 
-    <h1 id="playerTitle">Player:</h1><br>
+    <h1 id="playerTitle">Player:</h1>
+    <p id="total"></p>
     <p id="playersCards"></p>
-    <p id="hitCards"></p>
+    <p id="hitCards"></p><br>
   
     <div id="buttons">
         <button type="button" id="hit" onclick="hit()">Hit</button>
