@@ -5,6 +5,7 @@ var deck = [x,y];
 
 var yourCards = [];
 var computerCards = [];
+var hitCards = [];
 
 var color = {
     Hearts: '',
@@ -61,9 +62,11 @@ hit = () => {
     }
 
     var cards = (randomCard(4) + ', ' + randomCard(13));
-    yourCards.push(cards);
+    hitCards.push(cards);
 
-    console.log(yourCards);
+    
 
+    var hitCard = document.getElementById('hitCards');
+    hitCard.innerHTML = (`${hitCards}`);
     
 }
