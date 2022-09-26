@@ -52,6 +52,7 @@ startGame = ()  => {
     divMain.hidden = false;
 
     score();
+    info();
 
 }
 
@@ -59,8 +60,8 @@ hit = () => {
     drawCard();
     score();
 
-    /*var hitCard = document.getElementById('hitCards');
-    hitCard.innerHTML = (`${yourCards}`);*/
+    var hitCard = document.getElementById('hitCards');
+    hitCard.innerHTML = (`${yourCards}`);
     
 }
 
@@ -89,4 +90,84 @@ score = () => {
     total.innerHTML = playerScore;
     console.log(total);
     */
+}
+
+info = () => {
+    pCards = document.getElementById('playersCards');
+
+    if (cards.color === 0) {
+        switch (cards.value) {
+            case 10:
+                pCards.innerHTML += 'Jack of Hearts';
+                break;
+            case 11:
+                pCards.innerHTML += 'Queen of Hearts';
+                break;
+            case 12:
+                pCards.innerHTML += 'King of Hearts';
+                break;
+            case 0:
+                pCards.innerHTML += 'Ace of Hearts';
+                break;
+            default: pCards.innerHTML += (`${value+1} of Hearts`);
+                
+        };
+    };
+
+    if (cards.color === 1) {
+        switch (cards.value) {
+            case 10:
+                pCards.innerHTML += 'Jack of Diamonds';
+                break;
+            case 11:
+                pCards.innerHTML += 'Queen of Diamonds';
+                break;
+            case 12:
+                pCards.innerHTML += 'King of Diamonds';
+                break;
+            case 0:
+                pCards.innerHTML += 'Ace of Diamonds';
+                break;
+            default: pCards.innerHTML += (`${value+1} of Diamonds`);
+                
+        };
+    };
+
+    if (cards.color === 2) {
+        switch (cards.value) {
+            case 10:
+                pCards.innerHTML += 'Jack of Clubs';
+                break;
+            case 11:
+                pCards.innerHTML += 'Queen of Clubs';
+                break;
+            case 12:
+                pCards.innerHTML += 'King of Clubs';
+                break;
+            case 0:
+                pCards.innerHTML += 'Ace of Clubs';
+                break;
+            default: pCards.innerHTML += (`${value+1} of Clubs`);
+                
+        };
+    };
+
+    if (cards.color === 3) {
+        switch (cards.value) {
+            case 10:
+                pCards.innerHTML += 'Jack of Spades';
+                break;
+            case 11:
+                pCardsinnerHTML += 'Queen of Spades';
+                break;
+            case 12:
+                pCards.innerHTML += 'King of Spades';
+                break;
+            case 0:
+                pCards.innerHTML += 'Ace of Spades';
+                break;
+            default: pCards.innerHTML += (`${value+1} of Spades`);
+                
+        };
+    };
 }
