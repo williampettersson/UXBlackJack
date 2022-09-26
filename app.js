@@ -34,17 +34,13 @@ startGame = ()  => {
     deck = [];
     yourCards = [];
     computerCards = [];
+    var pCards = document.getElementById('playersCards');
+    pCards.innerHTML = '';
 
     for (i=0; i<2; i++) {
         drawCard();   
+        info();
     }
-
-    var pCards = document.getElementById('playersCards');
-    pCards.innerHTML = (`Your cards are: ${yourCards}.`);
-
-    var cCards = document.getElementById('computersCards');
-    cCards.innerHTML = (`Computers cards are: ${computerCards}.`);
-
 
     const divMain = document.getElementById('main');
     const newGame = document.getElementById('start');
@@ -52,16 +48,12 @@ startGame = ()  => {
     divMain.hidden = false;
 
     score();
-    info();
-
 }
 
 hit = () => {
     drawCard();
     score();
-
-    var hitCard = document.getElementById('hitCards');
-    hitCard.innerHTML = (`${yourCards}`);
+    info();
     
 }
 
@@ -93,23 +85,23 @@ score = () => {
 }
 
 info = () => {
-    pCards = document.getElementById('playersCards');
+    var onHand = document.getElementById('playersCards');
 
     if (cards.color === 0) {
         switch (cards.value) {
             case 10:
-                pCards.innerHTML += 'Jack of Hearts';
+                onHand.innerHTML += 'Jack of Hearts ';
                 break;
             case 11:
-                pCards.innerHTML += 'Queen of Hearts';
+                onHand.innerHTML += 'Queen of Hearts ';
                 break;
             case 12:
-                pCards.innerHTML += 'King of Hearts';
+                onHand.innerHTML += 'King of Hearts ';
                 break;
             case 0:
-                pCards.innerHTML += 'Ace of Hearts';
+                onHand.innerHTML += 'Ace of Hearts ';
                 break;
-            default: pCards.innerHTML += (`${value+1} of Hearts`);
+            default: onHand.innerHTML += (`${value+1} of Hearts `);
                 
         };
     };
@@ -117,18 +109,18 @@ info = () => {
     if (cards.color === 1) {
         switch (cards.value) {
             case 10:
-                pCards.innerHTML += 'Jack of Diamonds';
+                onHand.innerHTML += 'Jack of Diamonds ';
                 break;
             case 11:
-                pCards.innerHTML += 'Queen of Diamonds';
+                onHand.innerHTML += 'Queen of Diamonds ';
                 break;
             case 12:
-                pCards.innerHTML += 'King of Diamonds';
+                onHand.innerHTML += 'King of Diamonds ';
                 break;
             case 0:
-                pCards.innerHTML += 'Ace of Diamonds';
+                onHand.innerHTML += 'Ace of Diamonds ';
                 break;
-            default: pCards.innerHTML += (`${value+1} of Diamonds`);
+            default: onHand.innerHTML += (`${value+1} of Diamonds `);
                 
         };
     };
@@ -136,18 +128,18 @@ info = () => {
     if (cards.color === 2) {
         switch (cards.value) {
             case 10:
-                pCards.innerHTML += 'Jack of Clubs';
+                onHand.innerHTML += 'Jack of Clubs ';
                 break;
             case 11:
-                pCards.innerHTML += 'Queen of Clubs';
+                onHand.innerHTML += 'Queen of Clubs ';
                 break;
             case 12:
-                pCards.innerHTML += 'King of Clubs';
+                onHand.innerHTML += 'King of Clubs ';
                 break;
             case 0:
-                pCards.innerHTML += 'Ace of Clubs';
+                onHand.innerHTML += 'Ace of Clubs ';
                 break;
-            default: pCards.innerHTML += (`${value+1} of Clubs`);
+            default: onHand.innerHTML += (`${value+1} of Clubs `);
                 
         };
     };
@@ -155,18 +147,18 @@ info = () => {
     if (cards.color === 3) {
         switch (cards.value) {
             case 10:
-                pCards.innerHTML += 'Jack of Spades';
+                onHand.innerHTML += 'Jack of Spades ';
                 break;
             case 11:
-                pCardsinnerHTML += 'Queen of Spades';
+                onHandinnerHTML += 'Queen of Spades ';
                 break;
             case 12:
-                pCards.innerHTML += 'King of Spades';
+                onHand.innerHTML += 'King of Spades ';
                 break;
             case 0:
-                pCards.innerHTML += 'Ace of Spades';
+                onHand.innerHTML += 'Ace of Spades ';
                 break;
-            default: pCards.innerHTML += (`${value+1} of Spades`);
+            default: onHand.innerHTML += (`${value+1} of Spades `);
                 
         };
     };
