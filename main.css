@@ -1,8 +1,21 @@
 body {
-    background-color: palegoldenrod;
+    background-color: palegreen;
     text-align: center;
 }
 
 #main {
     border: 1px solid black;
+    padding: 10px;
+}
+
+#start {
+    padding: 5px;
+}
+
+#hit {
+    padding: 10px;
+}
+
+#stay {
+    padding: 10px;
 }

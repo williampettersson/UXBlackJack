@@ -1,13 +1,12 @@
-console.log('hello!');
-
 var x;
 var y;
 
 var deck = [x,y];
 
-var playersCards = [];
+var yourCards = [];
+var computerCards = [];
 
-var denomination = {
+var color = {
     Hearts: '',
     Diamonds: '',
     Spades: '',
@@ -22,7 +21,8 @@ function build() {
 
 startGame = ()  => {
 
-    playersCards = [];
+    yourCards = [];
+    computerCards = [];
 
     var randomCard = (max) => {
         return Math.floor(Math.random() * max);
@@ -30,10 +30,23 @@ startGame = ()  => {
 
     for (i=0; i<2; i++) {
         var cards = (randomCard(4) + ', ' + randomCard(13));    
-        playersCards.push(cards);
+        yourCards.push(cards);
     }
 
-    console.log(playersCards);
+    for (i=0; i<2; i++) {
+        var cards = (randomCard(4) + ', ' + randomCard(13));    
+        computerCards.push(cards);
+    }
+
+    console.log(computerCards);
+    console.log(yourCards);
+
+    var pCards = document.getElementById('playersCards');
+    pCards.innerHTML = (`Your cards are: ${yourCards}.`);
+
+    var cCards = document.getElementById('computersCards');
+    cCards.innerHTML = (`Computers cards are: ${computerCards}.`);
+
 
     const divMain = document.getElementById('main');
     const newGame = document.getElementById('start');
@@ -48,7 +61,9 @@ hit = () => {
     }
 
     var cards = (randomCard(4) + ', ' + randomCard(13));
-    playersCards.push(cards);
+    yourCards.push(cards);
 
-    console.log(playersCards);
+    console.log(yourCards);
+
+    
 }
