@@ -25,7 +25,7 @@ startGame = ()  => {
     playersCards = [];
 
     var randomCard = (max) => {
-        return Math.floor(Math.random(deck) * max);
+        return Math.floor(Math.random() * max);
     } 
 
     for (i=0; i<2; i++) {
@@ -44,7 +44,7 @@ startGame = ()  => {
 
 hit = () => {
     var randomCard = (max) => {
-        return Math.floor(Math.random(deck) * max);
+        return Math.floor(Math.random() * max);
     }
 
     var cards = (randomCard(4) + ', ' + randomCard(13));
